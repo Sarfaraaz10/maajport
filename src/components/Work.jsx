@@ -1,4 +1,3 @@
-// components/Work.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -19,19 +18,19 @@ const projects = [
   {
     title: "Proj 1",
     description:
-      "Just going to add a bunch of random things here coz why not blah blah.",
+      "Adding a bunch of text as placeholders for blah blah blah blah, yes and blah",
     images: [work1a, work1b, work1c],
   },
   {
     title: "Proj 2",
     description:
-      "Just going to add a bunch of random things here coz why not blah blah.",
+      "Adding a bunch of text as placeholders for blah blah blah blah, yes and blah",
     images: [work2a, work2b, work2c],
   },
   {
     title: "Proj 3",
     description:
-      "Just going to add a bunch of random things here coz why not blah blah.",
+      "Adding a bunch of text as placeholders for blah blah blah blah, yes and blah",
     images: [work3a, work3b, work3c],
   },
 ];
@@ -56,10 +55,10 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative w-full bg-transparent pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
+      className="relative w-full bg-gradient-to-br from-yellow-50 via-pink-50 to-orange-50 pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
     >
       {/* Project Selectors */}
-      <div className="flex justify-center space-x-4 mb-12 flex-wrap">
+      <div className="flex justify-center space-x-4 mb-8 sm:mb-12 flex-wrap">
         {projects.map((proj, idx) => (
           <motion.div
             key={idx}
@@ -70,7 +69,6 @@ export default function Work() {
             }`}
             onClick={() => setSelected(idx)}
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1.05 }} // mobile support
             transition={{ type: "spring", stiffness: 200 }}
           >
             {proj.title}
@@ -80,13 +78,13 @@ export default function Work() {
 
       <div className="flex flex-col md:flex-row md:space-x-12 items-start">
         {/* Left-hand text */}
-        <div className="md:w-1/3 mb-8 md:mb-0">
-          <motion.div className="bg-white/30 backdrop-blur p-6 rounded-2xl shadow-md min-h-[250px] md:min-h-[380px] flex flex-col justify-center">
+        <div className="md:w-1/3 mb-6 md:mb-0">
+          <motion.div className="bg-white/30 backdrop-blur p-4 sm:p-6 rounded-2xl shadow-md h-auto md:h-[420px] flex flex-col justify-center">
             <motion.h3
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-2xl font-bold text-gray-900"
+              className="text-xl sm:text-2xl md:text-2xl font-bold text-gray-900"
             >
               {projects[selected].title}
             </motion.h3>
@@ -94,7 +92,7 @@ export default function Work() {
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-gray-700 mt-3"
+              className="text-sm sm:text-base md:text-gray-700 mt-2"
             >
               {projects[selected].description}
             </motion.p>
@@ -103,34 +101,33 @@ export default function Work() {
 
         {/* Right-hand images */}
         <motion.div
-          className="md:w-2/3 flex flex-col items-center md:items-end relative"
-          style={{ minHeight: "380px" }}
+          className="md:w-2/3 flex flex-wrap justify-center md:flex-col md:items-end relative"
+          style={{ minHeight: "420px" }}
         >
           {projects[selected].images.map((img, idx) => {
-            const offset = idx * 20;
-            const scale = 1 - idx * 0.05;
+            const offset = idx * 25;
+            const scale = 1 - idx * 0.04;
 
             return (
               <motion.img
                 key={img}
                 src={img}
                 alt={`${projects[selected].title} image ${idx + 1}`}
-                className="rounded-xl shadow-2xl object-cover cursor-pointer w-11/12 md:w-[90%] max-h-[300px] mb-[-40px]"
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                className="rounded-xl shadow-2xl object-cover cursor-pointer w-5/6 sm:w-11/12 md:w-full max-h-48 sm:max-h-60 md:max-h-[400px] mb-[-30px]"
+                initial={{ opacity: 0 }}
                 animate={{
                   opacity: loadedImgs[img] ? 1 : 0,
                   y: -offset,
                   scale,
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 1.2,
                   delay: idx * 0.3,
                   type: "spring",
                   stiffness: 120,
                 }}
                 onClick={() => setActiveImg(img)}
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 1.05 }}
               />
             );
           })}
@@ -148,7 +145,7 @@ export default function Work() {
         >
           <motion.img
             src={activeImg}
-            className="w-auto h-auto max-w-[90vw] max-h-[90vh] rounded-2xl shadow-2xl"
+            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-2xl"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
