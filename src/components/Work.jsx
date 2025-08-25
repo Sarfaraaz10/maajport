@@ -17,19 +17,19 @@ import work3c from "../assets/work3c.jpg";
 
 const projects = [
   {
-    title: "Placeholder Project 1",
+    title: "Proj 1",
     description:
       "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work1a, work1b, work1c],
   },
   {
-    title: "Placeholder Project 2",
+    title: "Proj 2",
     description:
       "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work2a, work2b, work2c],
   },
   {
-    title: "Placeholder Project 3",
+    title: "Proj 3",
     description:
       "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work3a, work3b, work3c],
