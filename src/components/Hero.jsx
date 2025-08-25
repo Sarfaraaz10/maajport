@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import heroImage from "../assets/hero.jpg";
 
-const dynamicRoles = ["Designer", "Architect", "Creative Director"];
+const dynamicRoles = ["Designer", "Architect", "Heart Melting Orchestrator"];
 
 export default function Hero() {
   const staticPart = "Interior";
@@ -72,9 +72,9 @@ export default function Hero() {
         {/* Short bio */}
         <div className="mt-6 max-w-xl">
           <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed">
-            Crafting elegant interiors that inspire and delight. <br />
-            Transforming spaces into functional, beautiful experiences. <br />
-            Dedicated to detail, aesthetics, and timeless design.
+            Here we can clearly state that you're an amazing girfriend. <br />
+            That deserves the world. <br />
+            && your boyfriend loves you, always.
           </p>
         </div>
 
