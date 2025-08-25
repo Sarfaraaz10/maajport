@@ -16,21 +16,21 @@ import work3c from "../assets/work3c.jpg";
 
 const projects = [
   {
-    title: "Modern Living Room",
+    title: "Project 1",
     description:
-      "A minimalist yet warm residential interior, blending functionality with elegance.",
+      "Include a bunch of things for said projectttt. It'll scale according to the amount of things you add to describe the project etc etc",
     images: [work1a, work1b, work1c],
   },
   {
-    title: "Corporate Office",
+    title: "Project 2",
     description:
-      "Sleek and functional office design to maximize productivity and aesthetics.",
+      "Same buzz.",
     images: [work2a, work2b, work2c],
   },
   {
-    title: "Boutique Cafe",
+    title: "Project 3",
     description:
-      "Inviting and stylish space combining comfort and sophisticated design elements.",
+      "n Again.",
     images: [work3a, work3b, work3c],
   },
 ];
