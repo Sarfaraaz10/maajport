@@ -1,3 +1,4 @@
+// components/Hero.jsx
 import React, { useState, useEffect } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import heroImage from "../assets/hero.jpg";
@@ -36,25 +37,23 @@ export default function Hero() {
   }, [text, isDeleting, roleIndex]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-green">
-      {/* Background with parallax */}
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Hero background */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})`, y: bgY }}
       />
-    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/25 to-black/0"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-black/25" />
 
-      {/* Hero Content */}
+      {/* Hero content */}
       <motion.div
         style={{ opacity, y }}
         className="relative z-10 flex flex-col justify-center h-full px-4 sm:px-8 md:px-16"
       >
-        {/* Main Name */}
         <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-logo font-bold leading-snug sm:leading-tight md:leading-tight tracking-wide">
           Maajidah Sait
         </h1>
 
-        {/* Dynamic roles - always horizontal */}
         <div className="mt-1 flex flex-row flex-wrap items-baseline">
           <span className="text-white text-xl sm:text-2xl md:text-3xl font-logo">{staticPart}</span>
           <motion.span
@@ -69,30 +68,26 @@ export default function Hero() {
           </motion.span>
         </div>
 
-        {/* Short bio */}
         <div className="mt-6 max-w-xl">
           <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed">
-            Here we can clearly state that you're an amazing girfriend. <br />
-            That deserves the world. <br />
-            && your boyfriend loves you, always.
+              Here we can clearly state that you're an amazing girfriend. <br />
+              That deserves the world. <br />
+              && your boyfriend loves you, always
           </p>
         </div>
 
-        {/* CTA button */}
         <motion.div style={{ opacity: ctaOpacity }} className="mt-8">
-            <a
-                href="#work"
-                onClick={(e) => {
-                e.preventDefault();
-                const workSection = document.getElementById("work");
-                if (workSection) {
-                    workSection.scrollIntoView({ behavior: "smooth" });
-                }
-                }}
-                className="inline-block text-center px-6 py-3 sm:py-4 bg-white/90 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-white transition"
-            >
-                View Work
-            </a>
+          <a
+            href="#work"
+            onClick={(e) => {
+              e.preventDefault();
+              const workSection = document.getElementById("work");
+              if (workSection) workSection.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-block text-center px-6 py-3 sm:py-4 bg-white/90 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-white transition"
+          >
+            View Work
+          </a>
         </motion.div>
       </motion.div>
     </section>

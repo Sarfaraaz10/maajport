@@ -1,3 +1,4 @@
+// components/Work.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -16,21 +17,21 @@ import work3c from "../assets/work3c.jpg";
 
 const projects = [
   {
-    title: "Project 1",
+    title: "Placeholder Project 1",
     description:
-      "Include a bunch of things for said projectttt. It'll scale according to the amount of things you add to describe the project etc etc",
+      "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work1a, work1b, work1c],
   },
   {
-    title: "Project 2",
+    title: "Placeholder Project 2",
     description:
-      "Same buzz.",
+      "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work2a, work2b, work2c],
   },
   {
-    title: "Project 3",
+    title: "Placeholder Project 3",
     description:
-      "n Again.",
+      "Just going to add a bunch of random things here coz why not blah blah.",
     images: [work3a, work3b, work3c],
   },
 ];
@@ -55,10 +56,10 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative w-full bg-gradient-to-br from-[#E6D5C3] via-[#ffe9ec] to-[#E6D5C3] pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
+      className="relative w-full bg-transparent pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
     >
       {/* Project Selectors */}
-      <div className="flex justify-center flex-wrap gap-3 mb-12">
+      <div className="flex justify-center space-x-4 mb-12 flex-wrap">
         {projects.map((proj, idx) => (
           <motion.div
             key={idx}
@@ -69,6 +70,7 @@ export default function Work() {
             }`}
             onClick={() => setSelected(idx)}
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.05 }} // mobile support
             transition={{ type: "spring", stiffness: 200 }}
           >
             {proj.title}
@@ -79,7 +81,7 @@ export default function Work() {
       <div className="flex flex-col md:flex-row md:space-x-12 items-start">
         {/* Left-hand text */}
         <div className="md:w-1/3 mb-8 md:mb-0">
-          <motion.div className="bg-white/30 backdrop-blur p-6 rounded-2xl shadow-md h-auto md:h-[420px] flex flex-col justify-center">
+          <motion.div className="bg-white/30 backdrop-blur p-6 rounded-2xl shadow-md min-h-[250px] md:min-h-[380px] flex flex-col justify-center">
             <motion.h3
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
@@ -101,30 +103,34 @@ export default function Work() {
 
         {/* Right-hand images */}
         <motion.div
-          className="md:w-2/3 flex flex-col items-center md:items-end relative overflow-hidden"
-          style={{ minHeight: "420px" }} // keeps layout stable
+          className="md:w-2/3 flex flex-col items-center md:items-end relative"
+          style={{ minHeight: "380px" }}
         >
           {projects[selected].images.map((img, idx) => {
-            const offset = idx * 25;
-            const scale = 1 - idx * 0.04;
+            const offset = idx * 20;
+            const scale = 1 - idx * 0.05;
 
             return (
               <motion.img
                 key={img}
                 src={img}
                 alt={`${projects[selected].title} image ${idx + 1}`}
-                className="rounded-xl shadow-2xl object-cover cursor-pointer w-11/12 md:w-full max-h-[400px] mb-[-50px]"
-                // Only animate the first time an image loads (prevents jump)
-                initial={loadedImgs[img] ? false : { opacity: 0, y: -offset, scale }}
-                animate={{ opacity: 1, y: -offset, scale }}
+                className="rounded-xl shadow-2xl object-cover cursor-pointer w-11/12 md:w-[90%] max-h-[300px] mb-[-40px]"
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{
+                  opacity: loadedImgs[img] ? 1 : 0,
+                  y: -offset,
+                  scale,
+                }}
                 transition={{
-                  duration: 1.2,
-                  delay: idx * 0.2,
+                  duration: 1.5,
+                  delay: idx * 0.3,
                   type: "spring",
                   stiffness: 120,
                 }}
                 onClick={() => setActiveImg(img)}
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 1.05 }}
               />
             );
           })}
@@ -142,7 +148,7 @@ export default function Work() {
         >
           <motion.img
             src={activeImg}
-            className="max-w-3xl max-h-[80vh] rounded-2xl shadow-2xl"
+            className="w-auto h-auto max-w-[90vw] max-h-[90vh] rounded-2xl shadow-2xl"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
