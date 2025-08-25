@@ -55,10 +55,10 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="relative w-full bg-white pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
+      className="relative w-full bg-gradient-to-br from-[#E6D5C3] via-[#ffe9ec] to-[#E6D5C3] pt-20 sm:pt-24 md:pt-28 pb-20 px-4 sm:px-8 md:px-16"
     >
       {/* Project Selectors */}
-      <div className="flex justify-center space-x-4 mb-12">
+      <div className="flex justify-center flex-wrap gap-3 mb-12">
         {projects.map((proj, idx) => (
           <motion.div
             key={idx}
@@ -79,7 +79,7 @@ export default function Work() {
       <div className="flex flex-col md:flex-row md:space-x-12 items-start">
         {/* Left-hand text */}
         <div className="md:w-1/3 mb-8 md:mb-0">
-          <motion.div className="bg-white/30 backdrop-blur p-6 rounded-2xl shadow-md h-[380px] md:h-[420px] flex flex-col justify-center">
+          <motion.div className="bg-white/30 backdrop-blur p-6 rounded-2xl shadow-md h-auto md:h-[420px] flex flex-col justify-center">
             <motion.h3
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
@@ -101,8 +101,8 @@ export default function Work() {
 
         {/* Right-hand images */}
         <motion.div
-          className="md:w-2/3 flex flex-col items-center md:items-end relative"
-          style={{ minHeight: "420px" }} // FIX: container height prevents shifting
+          className="md:w-2/3 flex flex-col items-center md:items-end relative overflow-hidden"
+          style={{ minHeight: "420px" }} // keeps layout stable
         >
           {projects[selected].images.map((img, idx) => {
             const offset = idx * 25;
@@ -114,15 +114,12 @@ export default function Work() {
                 src={img}
                 alt={`${projects[selected].title} image ${idx + 1}`}
                 className="rounded-xl shadow-2xl object-cover cursor-pointer w-11/12 md:w-full max-h-[400px] mb-[-50px]"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: loadedImgs[img] ? 1 : 0,
-                  y: -offset,
-                  scale,
-                }}
+                // Only animate the first time an image loads (prevents jump)
+                initial={loadedImgs[img] ? false : { opacity: 0, y: -offset, scale }}
+                animate={{ opacity: 1, y: -offset, scale }}
                 transition={{
-                  duration: 1.2, // slightly slower fade
-                  delay: idx * 0.3,
+                  duration: 1.2,
+                  delay: idx * 0.2,
                   type: "spring",
                   stiffness: 120,
                 }}
