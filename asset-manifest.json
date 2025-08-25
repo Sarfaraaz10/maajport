@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/maajport/static/css/main.4b6cc44b.css",
-    "main.js": "/maajport/static/js/main.63a8f346.js",
+    "main.css": "/maajport/static/css/main.2266c738.css",
+    "main.js": "/maajport/static/js/main.b261aa52.js",
     "static/js/453.8ca971e5.chunk.js": "/maajport/static/js/453.8ca971e5.chunk.js",
     "static/media/work3a.jpg": "/maajport/static/media/work3a.7b5841bef5be0f55a1d6.jpg",
     "static/media/work3b.jpg": "/maajport/static/media/work3b.b395b4502d86dc7540b5.jpg",
@@ -15,12 +15,12 @@
     "static/media/work2c.jpg": "/maajport/static/media/work2c.90a9e9a94abbda16e8a4.jpg",
     "static/media/logo.png": "/maajport/static/media/logo.d7068ebdecfb8075125c.png",
     "index.html": "/maajport/index.html",
-    "main.4b6cc44b.css.map": "/maajport/static/css/main.4b6cc44b.css.map",
-    "main.63a8f346.js.map": "/maajport/static/js/main.63a8f346.js.map",
+    "main.2266c738.css.map": "/maajport/static/css/main.2266c738.css.map",
+    "main.b261aa52.js.map": "/maajport/static/js/main.b261aa52.js.map",
     "453.8ca971e5.chunk.js.map": "/maajport/static/js/453.8ca971e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b6cc44b.css",
-    "static/js/main.63a8f346.js"
+    "static/css/main.2266c738.css",
+    "static/js/main.b261aa52.js"
   ]
 }
